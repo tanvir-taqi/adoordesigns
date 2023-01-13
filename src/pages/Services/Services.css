@@ -1,0 +1,12 @@
+
+.service-title{
+    position: relative;
+}
+.service-title::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    border-bottom: 4px solid #141414;
+}

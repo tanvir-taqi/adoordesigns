@@ -6,7 +6,7 @@ const Header = () => {
     const [display, setDisplay] = useState(false)
     return (
         <div className='' >
-            <div className={`fixed top-0 bg-[#FFDB00] z-50 w-full  header py-4 header-container  flex flex-col md:flex-row justify-between items-center`}>
+            <div className={`fixed top-0 bg-[#FFDB00] z-50 w-full  header py-4 header-container  flex flex-col md:flex-row justify-between items-center md:rounded-br-full md:rounded-bl-full`}>
                 <div className=" flex justify-around items-center w-full  md:w-1/6">
 
                     {/* header logo and name  */}
@@ -22,7 +22,7 @@ const Header = () => {
                     <div onClick={() => setDisplay(false)} className="nav-menu-link items-start flex flex-col md:flex-row py-12 md:py-1 ">
                         <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-base font-bold   my-2 text-black' : 'mr-4 text-base font-semibold text-[#141414]  my-2')} to='/'>Home</NavLink>
                         <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-base font-bold   my-2 text-black' : 'mr-4 text-base font-semibold text-[#141414]  my-2')} to='/services'>Services</NavLink>
-                        <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-base font-bold   my-2 text-black' : 'mr-4 text-base font-semibold text-[#141414]  my-2')} to='/projects'>Projects</NavLink>
+                        <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-base font-bold   my-2 text-black' : 'mr-4 text-base font-semibold text-[#141414]  my-2')} to={`/projects/${'all'}`}>Projects</NavLink>
                         <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-sm font-medium bg-secondary rounded-2xl px-4 py-1 my-1 text-primary' : 'mr-4 text-sm font-medium bg-secondary rounded-2xl px-4 py-1 my-1 text-white')} to='/contact'>Contact</NavLink>
                     </div>
 

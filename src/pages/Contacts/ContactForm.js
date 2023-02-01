@@ -73,7 +73,7 @@ const ContactForm = () => {
                             {/* <p className='text-lg'>{emailMsg}</p>
                             <p className='text-lg'>{errorMsg}</p> */}
                             <div className="form-control flex justify-end items-end  w-full mt-3">
-                                <input className="mr-4 w-1/4 text-sm font-medium bg-secondary  rounded-2xl px-4 py-1 my-1 text-white hover:text-primary" type="submit" value="Send Message" />
+                                <input className="mr-4 text-sm font-medium bg-secondary  rounded-2xl px-4 py-1 my-1 text-white hover:text-primary" type="submit" value="Send Message" />
                             </div>
                         </form>
                     </div>

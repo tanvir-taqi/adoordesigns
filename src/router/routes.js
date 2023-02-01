@@ -1,5 +1,6 @@
 
 import { createBrowserRouter } from "react-router-dom";
+import ProjectDetails from "../components/ProjectDetails";
 import Main from "../layout/Main";
 import Contact from "../pages/Contacts/Contact";
 import Home from "../pages/Home/Home";
@@ -24,8 +25,15 @@ export const router = createBrowserRouter([
                     element: <Contact></Contact>
                 },
                 {
-                    path:'/projects',
-                    element:<Projects></Projects>
+                    path:'/projects/:category',
+                    element:<Projects></Projects>,
+                    loader:({params})=>fetch(`http://localhost:5000/allprojects/${params.category}`)
+                },
+                
+                {
+                    path:'/project/:id',
+                    element:<ProjectDetails></ProjectDetails>,
+                    loader:({params})=>fetch(`http://localhost:5000/project/${params.id}`)
                 },
                 
             ]

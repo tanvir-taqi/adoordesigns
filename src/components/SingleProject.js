@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const SingleProject = ({project}) => {
     const {_id, name,about,coverPicture,categories} = project;
     return (
-        <div  className='flex w-full justify-center mb-6 '>
-            <div className=' md:w-3/4 md:m-6   bg-[#9696962a] shadow-lg shadow-[#969696c4] rounded-lg flex flex-col-reverse md:flex-row'>
+        <div  className='flex w-full justify-center mb-6'>
+            <div className=' md:w-3/4   p-2  bg-[#9696962a]  rounded-lg flex flex-col-reverse md:flex-row'>
                 <div className='text-black text-start md:p-4 p-2 md:w-1/2'>
                     <h2 className='font-bold text-xl'>{name}</h2>
                      <div className='my-2 flex justify-start items-center'>

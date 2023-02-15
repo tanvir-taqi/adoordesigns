@@ -17,7 +17,7 @@ const ContactForm = () => {
             .then((result) => {
                 console.log(result);
                 if (result.text === 'OK') {
-                    setEmailMsg("Thanks for response. Your email is sent succesfully")
+                    setEmailMsg("Thanks for your response. Your email is sent succesfully")
                     setLoadContact(false)
                 }
             }, (error) => {
@@ -41,10 +41,10 @@ const ContactForm = () => {
                 
                 <div className=' flex  justify-center  '>
                     <div className='w-full p-1  md:p-10 '>
-                        <h1 className='text-4xl contact-title   font-extrabold text-start  mb-6'>Let's Connect</h1>
-                        <p className='text-base'>{emailMsg}</p>
+                        <h1 className='text-4xl underline font-extrabold text-center   mb-6'>Let's Connect</h1>
+                        <p className='text-base text-start'>{emailMsg}</p>
                         <p className='text-base'>{errorMsg}</p>
-                        <form className="bg-primary rounded-lg p-3 w-full mt-12" ref={form} onSubmit={sendEmail}>
+                        <form className="bg-primary rounded-lg p-6 w-full mt-12" ref={form} onSubmit={sendEmail}>
                             <div className="form-control">
                                 <label className="label font-bold tracking-wide">
                                     Name:

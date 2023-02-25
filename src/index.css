@@ -13,3 +13,30 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+/* ::-webkit-scrollbar {
+  width: 15px;
+  background: #ffdb00;
+
+} */
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px white; 
+  border-radius: 10px;
+ 
+} */
+
+ 
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to top, #1e1e1e, transparent); 
+  border-bottom-right-radius: 40%; 
+  border-bottom-left-radius: 40%;
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to top, white, transparent);; 
+  box-shadow: 2px 2px 2px white;
+}  */
+

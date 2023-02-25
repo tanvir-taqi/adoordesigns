@@ -70,10 +70,9 @@ const ContactForm = () => {
                                 <textarea name="message" className="textarea textarea-bordered h-20 w-full my-3 text-base  bg-[#ffffff] border border-[#f7f7f7] text-[#1e1e1e] tracking-wider text-semibold p-1" placeholder="Your Message" required></textarea>
                             </div>
 
-                            {/* <p className='text-lg'>{emailMsg}</p>
-                            <p className='text-lg'>{errorMsg}</p> */}
+                         
                             <div className="form-control flex justify-end items-end  w-full mt-3">
-                                <input className="mr-4 text-sm font-medium bg-secondary  rounded-2xl px-4 py-1 my-1 text-white hover:text-primary" type="submit" value="Send Message" />
+                                <input className="mr-4 text-sm font-medium bg-secondary  rounded-2xl px-5 py-2 my-1 text-white hover:text-primary" type="submit" value="Send Message" />
                             </div>
                         </form>
                     </div>

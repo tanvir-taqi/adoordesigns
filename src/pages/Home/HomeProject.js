@@ -7,7 +7,7 @@ import SingleProject from '../../components/SingleProject';
 const HomeProject = () => {
     const [projects, setProjects] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/projects')
+        fetch('https://apidesigns.adoordesigns.com/projects')
             .then(res => res.json())
             .then(data => {
                 setProjects(data)
@@ -19,6 +19,9 @@ const HomeProject = () => {
                 <div className='flex w-full justify-center mb-6'>
                     <h1 className='md:w-1/3 text-center text-secondary text-4xl font-extrabold brand-title'>Recent Projects</h1>
                 </div>
+                {
+                   projects.length === 0 && <h1 className=' text-center text-secondary text-2xl font-medium '>No Projects Available</h1> 
+                }
                 <div className='grid grid-cols-1 gap-2 justify-center items-center'>
                     {
                         projects.map(project=> <SingleProject
@@ -27,9 +30,12 @@ const HomeProject = () => {
                         ></SingleProject>)
                     }
                 </div>
-                <Link to='/projects/all'>
+                {
+                    projects.length !== 0 && <Link to='/projects/all'>
                     <button className='text-black underline border-none outline-none font-bold text-lg'>See More</button>
                 </Link>
+                }
+                
 
             </div>
 

@@ -1,6 +1,6 @@
 
 import React, { useContext, useEffect, useState } from 'react';
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Spinning from '../../components/Spinning';
 import { AuthContext } from '../../UserContext/UserContext';
@@ -84,7 +84,7 @@ const Login = () => {
                     <p className='text-red-600'>{errorMsg}</p>
                     <input type="submit" className='font-bold text-lg bg-[rgba(233,31,98,0.32)] hover:text-[rgb(233,31,99)] py-2 px-4 rounded my-3 cursor-pointer' value="Sign In" />
                 </form>
-                <h4>New to adoordesigns? <Link to='/adoordesignsdashboardsignup' className='text-[rgb(233,31,99)]'>Create Account</Link></h4>
+                
             </div>
 
         </div>

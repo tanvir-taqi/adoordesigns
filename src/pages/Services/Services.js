@@ -18,25 +18,25 @@ const services = [
         id: 2,
         logo: service2,
         name: 'Illustrations',
-        description: 'Defining and documenting brand standards.'
+        description: 'Illustrations are visual representations or designs.'
     },
     {
         id: 3,
         logo: service3,
         name: 'Marketing posts',
-        description: 'Defining and documenting brand standards.'
+        description: 'Promotional content messages for engaging customers.'
     },
     {
         id: 4,
         logo: service4,
         name: 'UI UX Design',
-        description: 'Defining and documenting brand standards.'
+        description: 'curated user interface and experience design.'
     },
     {
         id: 5,
         logo: service5,
         name: 'NFT',
-        description: 'Defining and documenting brand standards.'
+        description: 'Custom traits on unique trending NFT collection.'
     }
 ]
 

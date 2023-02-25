@@ -35,19 +35,16 @@ export const router = createBrowserRouter([
                     path:'/adoordesignsdashboardlogin',
                     element: <Login></Login>
                 },
-                {
-                    path:'/adoordesignsdashboardsignup',
-                    element: <SignUp></SignUp>
-                },
+                
                 {
                     path:'/projects/:category',
                     element:<Projects></Projects>,
-                    loader:({params})=>fetch(`http://localhost:5000/allprojects/${params.category}`)
+                    loader:({params})=>fetch(`https://apidesigns.adoordesigns.com/allprojects/${params.category}`)
                 },
                 {
                     path:'/project/:id',
                     element:<ProjectDetails></ProjectDetails>,
-                    loader:({params})=>fetch(`http://localhost:5000/project/${params.id}`)
+                    loader:({params})=>fetch(`https://apidesigns.adoordesigns.com/project/${params.id}`)
                 },
                 {
                     path:'/dashboard',

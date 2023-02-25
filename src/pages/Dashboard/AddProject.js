@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import Spinning from '../../components/Spinning';
+import SpinningImage from '../../components/SpinningImage';
 
 const AddProject = () => {
     const [checkboxValues, setCheckboxValues] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [clearCheckboxValues, setClearCheckboxValues] = useState(false)
+    const [imageLoading, setImageLoading] = useState(false)
+    const [images, setImages] = useState({})
+
 
     const handleCheckboxChange = (event) => {
         setClearCheckboxValues(false)
@@ -15,13 +19,15 @@ const AddProject = () => {
             setCheckboxValues([...checkboxValues, newValue]);
         }
 
-        if(clearCheckboxValues){
+        if (clearCheckboxValues) {
             newValue.reset()
         }
     };
-    const addImage = (image) => {
-        setIsLoading(true)
-        const imagebbkey = "3d992531b2e001db3f5cd271f43310f7"
+
+
+    const addImage = (image, title) => {
+        setImageLoading(true)
+        const imagebbkey = process.env.REACT_APP_IMAGEBB_KEY
         const formData = new FormData()
         formData.append('image', image)
         const url = `https://api.imgbb.com/1/upload?key=${imagebbkey}`
@@ -31,12 +37,13 @@ const AddProject = () => {
         })
             .then(res => res.json())
             .then(imgData => {
-                const productPhoto = imgData.data.url
-                console.log('====================================');
-                console.log(productPhoto);
-                console.log('====================================');
-                setIsLoading(false)
-                return productPhoto
+                if (imgData.status === 200) {
+                    const projectPhoto = imgData.data.url
+                    setImages({ ...images, [title]: projectPhoto })
+                 
+                    
+                    setImageLoading(false)
+                }
             })
             .catch(err => {
                 console.log('====================================')
@@ -48,29 +55,30 @@ const AddProject = () => {
 
     const handleAddProject = (event) => {
         event.preventDefault();
-        setIsLoading(false)
+        setIsLoading(true)
         const form = event.target
         const name = form.name.value
         const clientName = form.clientName.value
         const year = form.year.value
-        const index = form.index.value
+        const moreDetails = form.moreDetails.value
+        const index = parseInt(form.index.value) 
         const description = form.description.value
-        const cphoto = addImage(form.cphoto.files[0])
-        const img1 = addImage(form.img1.files[0])
-        const img2 = addImage(form.img2.files[0])
-        const img3 = addImage(form.img3.files[0])
-        const img4 = addImage(form.img4.files[0])
-        const img5 = addImage(form.img5.files[0])
-        const img6 = addImage(form.img6.files[0])
-
+        const cphoto = images.cphoto
+        const img1 = images.img1
+        const img2 = images.img2
+        const img3 = images.img3
+        const img4 = images.img4
+        const img5 = images.img5
+        const img6 = images.img6
 
         const project = {
             name,
             clientName,
             year,
-            index,
+            index:index,
             about: description,
             categories: checkboxValues,
+            moreDetails,
             coverPicture: cphoto,
             picture1: img1,
             picture2: img2,
@@ -79,35 +87,42 @@ const AddProject = () => {
             picture5: img5,
             picture6: img6,
         }
-    fetch('http://localhost:5000/project',{
-        method: 'POST',
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(project)
+        
+        fetch('https://apidesigns.adoordesigns.com/project',{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(project)
 
-    })
-    .then(res => res.json())
-    .then(data=> {
-        if(data.acknowledge){
-            form.reset()
-            setClearCheckboxValues(true)
-            setIsLoading(true)
-            alert(data.acknowledge)
-        }
-    })    
+        })
+        .then(res => res.json())
+        .then(data=> {
+           
+            if(data.acknowledged){
+                form.reset()
+                setClearCheckboxValues(false)
+                setIsLoading(false)
+               
+            }else{
+                form.reset()
+                setClearCheckboxValues(false)
+                setIsLoading(false)
+                
+            }
+        })    
     }
 
-    
-if(isLoading){
-    return <Spinning></Spinning>
-}
+
+    if (isLoading) {
+        return <Spinning></Spinning>
+    }
 
 
     return (
         <div className='py-32 flex justify-center w-full'>
             <div className='text-black bg-primary w-4/5 p-4'>
-                <h1 className='text-2xl font-bold text-black'>Add A Project</h1>
+                <h1 className='text-2xl font-bold text-black flex w-full justify-center'>Add A Project <span className='px-2'>{imageLoading && <SpinningImage></SpinningImage>}</span> </h1>
                 <div className='w-full flex justify-center'>
                     <form onSubmit={handleAddProject} className='w-full grid grid-cols-3  gap-6'>
                         <div className="form-control flex flex-col items-start ">
@@ -123,36 +138,41 @@ if(isLoading){
                             <input type="text" name='year' className='border p-1 text-black' />
                         </div>
                         <div className="form-control flex flex-col items-start ">
+
                             <label htmlFor="cphoto">Cover Photo</label>
-                            <input type="file" name='cphoto' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
+                            <input onChange={(event) => addImage(event.target.files[0], 'cphoto')} type="file" name='cphoto' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
                         </div>
                         <div className="form-control flex flex-col items-start ">
                             <label htmlFor="img1">Image 1</label>
-                            <input type="file" name='img1' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
+                            <input onChange={(event) => addImage(event.target.files[0], 'img1')} type="file" name='img1' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
                         </div>
                         <div className="form-control flex flex-col items-start ">
                             <label htmlFor="img2">Image 2</label>
-                            <input type="file" name='img2' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
+                            <input onChange={(event) => addImage(event.target.files[0], 'img2')} type="file" name='img2' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
                         </div>
                         <div className="form-control flex flex-col items-start ">
                             <label htmlFor="img3">Image 3</label>
-                            <input type="file" name='img3' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
+                            <input onChange={(event) => addImage(event.target.files[0], 'img3')} type="file" name='img3' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
                         </div>
                         <div className="form-control flex flex-col items-start ">
                             <label htmlFor="img4">Image 4</label>
-                            <input type="file" name='img4' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
+                            <input onChange={(event) => addImage(event.target.files[0], 'img4')} type="file" name='img4' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
                         </div>
                         <div className="form-control flex flex-col items-start ">
                             <label htmlFor="img5">Image 5</label>
-                            <input type="file" name='img5' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
+                            <input onChange={(event) => addImage(event.target.files[0], 'img5')} type="file" name='img5' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
                         </div>
                         <div className="form-control flex flex-col items-start ">
                             <label htmlFor="img6">Image 6</label>
-                            <input type="file" name='img6' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
+                            <input onChange={(event) => addImage(event.target.files[0], 'img6')} type="file" name='img6' className='border bg-primary text-black   file-input file-input-bordered  file-input-primary w-full  max-w-xs ' />
                         </div>
                         <div className="form-control flex flex-col items-start ">
                             <label htmlFor="index">Index</label>
-                            <input type="text" name='index' className='border p-1 text-black' />
+                            <input type="number" name='index' className='border p-1 text-black' />
+                        </div>
+                        <div className="form-control flex flex-col items-start ">
+                            <label htmlFor="moreDetails">Details Link</label>
+                            <input type="text" name='moreDetails' className='border p-1 text-black' />
                         </div>
                         <div className="form-control flex flex-col items-start ">
                             <label htmlFor="category">Category</label>

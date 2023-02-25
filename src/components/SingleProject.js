@@ -9,7 +9,7 @@ const SingleProject = ({project}) => {
                 <div className='text-black text-start md:p-4 p-2 md:w-1/2'>
                     <h2 className='font-bold text-xl'>{name}</h2>
                      <div className='my-2 flex justify-start items-center'>
-                        <p className='mr-2 bg-primary text-black font-semibold text-xs  px-3 py-2 rounded-full'>Logo</p>
+                       
                         {
                             categories.map((ct,i)=> <p className='mr-2 bg-primary text-black font-semibold text-xs px-3 py-2 rounded-full' key={i}>{ct}</p>)
                         }

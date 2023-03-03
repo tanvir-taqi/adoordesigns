@@ -48,7 +48,7 @@ const Services = () => {
     return (
         <div className='py-32 bg-primary text-secondary'>
             <div className=' '>
-                <div className='flex w-full justify-center'>
+                <div className='flex w-full my-6 justify-center'>
                     <h1 className='md:w-1/4 text-center text-secondary text-4xl font-extrabold service-title'>My Services</h1>
                 </div>
             </div>

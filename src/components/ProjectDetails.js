@@ -13,7 +13,7 @@ const ProjectDetails = () => {
         window.open(url, '_blank', 'noopener,noreferrer');
       };
     return (
-        <div className=''>
+        <div className='py-24'>
             <div>
 
                 <img src={coverPicture} className='bg-transparent w-full h-80 ' alt="" />
@@ -28,14 +28,13 @@ const ProjectDetails = () => {
                                 categories.map((ct, i) => <p className='mr-2 bg-primary text-black font-semibold text-xs px-3 py-2 rounded-full' key={i}>{ct}</p>)
                             }
                         </div>
-                        <div className='my-4 md:w-1/2 flex items-center justify-around text-lg  p-1  bg-[#9696961a]'>
-
+                        <div className='my-4 md:w-1/2 flex items-center justify-between text-lg  px-5 py-1 rounded-2xl  bg-[#9696962a]'>
                             <p className='text-secondary font-bold'>Client: <span className='text-[#1e1e1e] font-medium'>{clientName}</span> </p>
                             <p className='text-secondary font-bold'>year: <span className='text-[#1e1e1e] font-medium'>{year}</span></p>
                         </div>
 
                         <p className='text-justify text-black text-sm my-6 px-3'>{about.slice(0, 500)}</p>
-                        <div className='grid grid-cols-1 justify-center items-center md:w-2/3'>
+                        {/* <div className='grid grid-cols-1 justify-center items-center md:w-full'>
                             <div className='grid grid-cols-[1fr,1fr] '>
                                 {
                                     picture1 ? <PhotoProvider
@@ -43,7 +42,7 @@ const ProjectDetails = () => {
                                         easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
                                     >
                                         <PhotoView src={picture1} >
-                                            <img src={picture1} className='h-48 w-full' alt="" />
+                                            <img src={picture1} className='h-full w-full' alt="" />
                                         </PhotoView>
                                     </PhotoProvider > : ""
                                 }
@@ -54,7 +53,7 @@ const ProjectDetails = () => {
                                         easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
                                     >
                                         <PhotoView src={picture2} >
-                                            <img src={picture2} className='h-48 w-full' alt="" />
+                                            <img src={picture2} className='h-full w-full' alt="" />
                                         </PhotoView>
                                     </PhotoProvider > : ""
                                 }
@@ -66,7 +65,7 @@ const ProjectDetails = () => {
                                         easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
                                     >
                                         <PhotoView src={picture3} >
-                                            <img src={picture3} className='h-48 w-full' alt="" />
+                                            <img src={picture3} className='h-full w-full' alt="" />
                                         </PhotoView>
                                     </PhotoProvider > : ""
                                 }
@@ -78,7 +77,7 @@ const ProjectDetails = () => {
                                         easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
                                     >
                                         <PhotoView src={picture4} >
-                                            <img src={picture4} className='h-48 w-full' alt="" />
+                                            <img src={picture4} className='h-full w-full' alt="" />
                                         </PhotoView>
                                     </PhotoProvider > : ""
                                 }
@@ -88,7 +87,7 @@ const ProjectDetails = () => {
                                         easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
                                     >
                                         <PhotoView src={picture5} >
-                                            <img src={picture5} className='h-48 w-full' alt="" />
+                                            <img src={picture5} className='h-full w-full' alt="" />
                                         </PhotoView>
                                     </PhotoProvider > : ""
                                 }
@@ -101,7 +100,81 @@ const ProjectDetails = () => {
                                         easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
                                     >
                                         <PhotoView src={picture6} >
-                                            <img src={picture6} className='h-48 w-full' alt="" />
+                                            <img src={picture6} className='h-full w-full' alt="" />
+                                        </PhotoView>
+                                    </PhotoProvider > : ""
+                                }
+                            </div>
+                        </div> */}
+                        <div className="grid grid-cols-1 justify-center items-center md:w-full">
+                            <div>
+                            {
+                                    picture1 ? <PhotoProvider
+                                        speed={() => 800}
+                                        easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
+                                    >
+                                        <PhotoView src={picture1} >
+                                            <img src={picture1} className='h-full w-full' alt="" />
+                                        </PhotoView>
+                                    </PhotoProvider > : ""
+                                }
+                            </div>
+                            <div>
+                            {
+                                    picture2 ? <PhotoProvider
+                                        speed={() => 800}
+                                        easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
+                                    >
+                                        <PhotoView src={picture2} >
+                                            <img src={picture2} className='h-full w-full' alt="" />
+                                        </PhotoView>
+                                    </PhotoProvider > : ""
+                                }
+                            </div>
+                            <div>
+                            {
+                                    picture3 ? <PhotoProvider
+                                        speed={() => 800}
+                                        easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
+                                    >
+                                        <PhotoView src={picture3} >
+                                            <img src={picture3} className='h-full w-full' alt="" />
+                                        </PhotoView>
+                                    </PhotoProvider > : ""
+                                }
+                            </div>
+                            <div>
+                            {
+                                    picture4 ? <PhotoProvider
+                                        speed={() => 800}
+                                        easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
+                                    >
+                                        <PhotoView src={picture4} >
+                                            <img src={picture4} className='h-full w-full' alt="" />
+                                        </PhotoView>
+                                    </PhotoProvider > : ""
+                                }
+                            </div>
+                            <div>
+                            {
+                                    picture5 ? <PhotoProvider
+                                        speed={() => 800}
+                                        easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
+                                    >
+                                        <PhotoView src={picture5} >
+                                            <img src={picture5} className='h-full w-full' alt="" />
+                                        </PhotoView>
+                                    </PhotoProvider > : ""
+                                }
+                            </div>
+                            <div>
+                            {
+                                    picture6 ? <PhotoProvider
+                                        speed={() => 800}
+                                        easing={(type) => (type === 1 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
+                                    >
+                                        <PhotoView src={picture6} >
+                                            <img src={picture6} className='h-full w-full' alt="" />
                                         </PhotoView>
                                     </PhotoProvider > : ""
                                 }

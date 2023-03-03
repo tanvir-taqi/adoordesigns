@@ -9,7 +9,7 @@ const Contact = () => {
     return (
         <div className='py-24'>
             <div className='flex flex-col-reverse md:flex-row justify-center items-center'>
-                <div className='w-full'>
+                <div className='w-full flex items-center justify-center mt-20 md:mt-0'>
                     <img src={contactLogo} alt="" />
                 </div>
                 <div className='w-full'>

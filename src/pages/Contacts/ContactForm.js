@@ -44,35 +44,34 @@ const ContactForm = () => {
                         <h1 className='text-4xl underline font-extrabold text-center   mb-6'>Let's Connect</h1>
                         <p className='text-base text-start'>{emailMsg}</p>
                         <p className='text-base'>{errorMsg}</p>
-                        <form className="bg-primary rounded-lg p-6 w-full mt-12" ref={form} onSubmit={sendEmail}>
+                        <form className="bg-primary rounded-lg p-4 w-full mt-12" ref={form} onSubmit={sendEmail}>
                             <div className="form-control">
                                 <label className="label font-bold tracking-wide">
                                     Name:
                                 </label>
-                                <input required type="text" name='user_name' placeholder="Email" className="input input-bordered bg-[#ffffff] border border-[#ffffff] text-[#1e1e1e] tracking-wider text-semibold p-1" />
+                                <input required type="text" name='user_name' placeholder="Email" className="input input-bordered bg-[#ffffff] border border-[#ffffff] text-[#1e1e1e] tracking-wider text-semibold py-1 px-4" />
                             </div>
                             <div className="form-control">
                                 <label className="label font-bold tracking-wide">
                                     Email:
                                 </label>
-                                <input required type="email" name='user_email' placeholder="Name" className="input input-bordered bg-[#ffffff] border border-[#f7f7f7] text-[#1e1e1e] tracking-wider text-semibold p-1" />
+                                <input required type="email" name='user_email' placeholder="Name" className="input input-bordered bg-[#ffffff] border border-[#f7f7f7] text-[#1e1e1e] tracking-wider text-semibold py-1 px-4" />
                             </div>
                             <div className="form-control">
                                 <label className="label font-bold tracking-wide">
                                     Subject:
                                 </label>
-                                <input required type="text" name='subject' placeholder="Subject" className="input input-bordered bg-[#ffffff] border border-[#f7f7f7] text-[#1e1e1e] tracking-wider text-semibold p-1" />
+                                <input required type="text" name='subject' placeholder="Subject" className="input input-bordered bg-[#ffffff] border border-[#f7f7f7] text-[#1e1e1e] tracking-wider text-semibold py-1 px-4" />
                             </div>
                             <div className="form-control">
                                 <label className="label font-bold tracking-wide">
                                     Your message
                                 </label>
-                                <textarea name="message" className="textarea textarea-bordered h-20 w-full my-3 text-base  bg-[#ffffff] border border-[#f7f7f7] text-[#1e1e1e] tracking-wider text-semibold p-1" placeholder="Your Message" required></textarea>
+                                <textarea name="message" className="textarea textarea-bordered h-20 w-full mb-3 text-base  bg-[#ffffff] border border-[#f7f7f7] text-[#1e1e1e] tracking-wider text-semibold py-1 px-4" placeholder="Your Message" required></textarea>
                             </div>
-
                          
                             <div className="form-control flex justify-end items-end  w-full mt-3">
-                                <input className="mr-4 text-sm font-medium bg-secondary  rounded-2xl px-5 py-2 my-1 text-white hover:text-primary" type="submit" value="Send Message" />
+                                <input className="text-sm font-medium bg-secondary  rounded-2xl px-5 py-2 my-1 text-white hover:text-primary" type="submit" value="Send Message" />
                             </div>
                         </form>
                     </div>

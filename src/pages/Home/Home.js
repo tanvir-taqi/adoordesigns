@@ -18,7 +18,7 @@ const Home = () => {
             <Services></Services>
             <HomeProject></HomeProject>
             <div className='flex justify-center items-center w-full my-12'>
-                <div className='w-5/6 md:w-1/2'>
+                <div className='w-full md:w-1/2'>
                     <ContactForm></ContactForm>
                 </div>
             </div>

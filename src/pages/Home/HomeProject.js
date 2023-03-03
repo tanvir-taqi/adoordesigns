@@ -16,7 +16,7 @@ const HomeProject = () => {
     return (
         <div className='py-12'>
             <div>
-                <div className='flex w-full justify-center mb-6'>
+                <div className='flex w-full justify-center my-12'>
                     <h1 className='md:w-1/3 text-center text-secondary text-4xl font-extrabold brand-title'>Recent Projects</h1>
                 </div>
                 {

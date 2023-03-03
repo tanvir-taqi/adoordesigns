@@ -9,14 +9,14 @@ const Footer = () => {
         window.open(url, '_blank', 'noopener,noreferrer');
       };
     return (
-        <div className='w-full pb-8 bg-secondary'>
+        <div className='w-full py-8 bg-secondary'>
             <div className='footer-container h-[272px] grid grid-cols-1 md:grid-cols-2 w-full bg-secondary text-primary'>
                 <div className='flex flex-col md:flex-row justify-around items-center'>
                     <Link to='/' >
-                        <img src={footerlogo} alt="" />
+                        <img src={footerlogo} className='h-16 md:h-full' alt="" />
                     </Link>
                     <div className="footer-menu">
-                        <ul className='list-none text-left'>
+                        <ul className='list-none text-center'>
                             <li><NavLink className={({ isActive }) => (isActive ? ' text-base font-medium   my-2 ' : ' text-base font-medium  my-2')} to='/'>Home</NavLink></li>
                             <li><NavLink className={({ isActive }) => (isActive ? ' text-base font-medium   my-2 ' : ' text-base font-medium  my-2')} to='/contact'>Contact</NavLink></li>
                             <li><NavLink className={({ isActive }) => (isActive ? ' text-base font-medium   my-2 ' : ' text-base font-medium  my-2')} to='/projects/all'>Projects</NavLink></li>

@@ -21,25 +21,26 @@ const brands = [
     },
     {
         id: 4,
-        brand: brand4
+        brand: brand5
     },
     {
         id: 5,
-        brand: brand5
+        brand: brand4
     }
+    
 ]
 
 const Brand = () => {
     return (
         <div>
             <div className='py-20 '>
-                <div>         
-                <div className='flex w-full justify-center'>
-                    <h1 className='md:w-1/3 text-center text-secondary text-4xl font-extrabold brand-title'>Brands I've worked for </h1>
-                </div>
-                    <div className='mt-12 items-center justify-center md:mx-16 lg:24 mx-4 gap-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5'>
+                <div>
+                    <div className='flex w-full px-3 justify-center'>
+                        <h1 className='md:w-1/3 text-center text-secondary text-4xl font-extrabold brand-title'>Brands I've worked for </h1>
+                    </div>
+                    <div className='mt-12 items-center justify-center md:mx-16 lg:24 mx-4 gap-12 md:gap-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5'>
                         {
-                            brands.map(brand => <img key={brand.id} src={brand.brand} alt="" />
+                            brands.map(brand => <img key={brand.id} className={` ${brand.id === 5 && ' pb-5 pt-3'}`} src={brand.brand} alt="" />
                             )
                         }
 
